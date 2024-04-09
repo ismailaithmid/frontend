@@ -1,0 +1,86 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'paiementIr.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'paiementIr.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'paiementIr.datePaiementIr' | translate}}</label>
+                        <p-calendar id="1" [disabled]="true"  [showTime]="true" [showSeconds]="false" placeholder="{{'paiementIr.datePaiementIr' | translate}}"  [ngModel]="item.datePaiementIr" dateFormat="{{dateFormat}}"></p-calendar>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'paiementIr.totalCotisationPatronal' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="2" [disabled]="true" placeholder="{{'paiementIr.totalCotisationPatronal' | translate}}" [ngModel]="item.totalCotisationPatronal"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'paiementIr.totalCotisationSalarial' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="3" [disabled]="true" placeholder="{{'paiementIr.totalCotisationSalarial' | translate}}" [ngModel]="item.totalCotisationSalarial"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'paiementIr.month' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'paiementIr.month' | translate}}" [ngModel]="item.month"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'paiementIr.year' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'paiementIr.year' | translate}}" [ngModel]="item.year"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'paiementIr.totalSalaireBrut' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="6" [disabled]="true" placeholder="{{'paiementIr.totalSalaireBrut' | translate}}" [ngModel]="item.totalSalaireBrut"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'paiementIr.totalSalaireNet' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="7" [disabled]="true" placeholder="{{'paiementIr.totalSalaireNet' | translate}}" [ngModel]="item.totalSalaireNet"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="8">{{'paiementIr.societe' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementIr.societe' | translate}}" autofocus  id="8" [ngModel]="item.societe?.ice">
+                    </div>
+                </div>
+            </p-tabPanel>
+
+            <p-tabPanel header="{{'paiementIr.paiementIrDetails' | translate}}">
+                <div class="grid">
+                    <div class="col">
+                        <div class="card">
+                            <p-table [value]="item.paiementIrDetails" [scrollable]="true" scrollHeight="200px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Taux ir</th>
+                                        <th>Employe</th>
+                                        <th>Salaire brute</th>
+                                        <th>Cotisationpatronel</th>
+                                        <th>Cotoisationsalarial</th>
+                                        <th>Salaire net</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-p>
+                                    <tr>
+                                        <td>{{p.tauxIr?.id}}</td>
+                                        <td>{{p.employe?.id}}</td>
+                                        <td>{{p.salaireBrute}}</td>
+                                        <td>{{p.cotisationpatronel}}</td>
+                                        <td>{{p.cotoisationsalarial}}</td>
+                                        <td>{{p.salaireNet}}</td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                        </div>
+                    </div>
+                </div>
+            </p-tabPanel>
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

@@ -1,0 +1,215 @@
+<div class="grid"  *ngIf="listActionIsValid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate('PaiementIrDetail')" *ngIf="createActionIsValid"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="1-2">{{'paiementIrDetail.paiementIr' | translate}}</label>
+                            <p-dropdown [options]="paiementIrs" [(ngModel)]="criteria.paiementIr" id="1" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paiementIrDetail.paiementIr' | translate}}" optionLabel="id">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2-2">{{'paiementIrDetail.tauxIr' | translate}}</label>
+                            <p-dropdown [options]="tauxIrs" [(ngModel)]="criteria.tauxIr" id="2" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paiementIrDetail.tauxIr' | translate}}" optionLabel="id">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3-2">{{'paiementIrDetail.employe' | translate}}</label>
+                            <p-dropdown [options]="employes" [(ngModel)]="criteria.employe" id="3" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paiementIrDetail.employe' | translate}}" optionLabel="id">
+                            </p-dropdown>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4-1">{{'paiementIrDetail.salaireBruteMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.salaireBruteMin" id="4-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4-2">{{'paiementIrDetail.salaireBruteMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.salaireBruteMax" id="4-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5-1">{{'paiementIrDetail.cotisationpatronelMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.cotisationpatronelMin" id="5-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5-2">{{'paiementIrDetail.cotisationpatronelMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.cotisationpatronelMax" id="5-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-1">{{'paiementIrDetail.cotoisationsalarialMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.cotoisationsalarialMin" id="6-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-2">{{'paiementIrDetail.cotoisationsalarialMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.cotoisationsalarialMax" id="6-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7-1">{{'paiementIrDetail.salaireNetMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.salaireNetMin" id="7-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7-2">{{'paiementIrDetail.salaireNetMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.salaireNetMax" id="7-2"></p-inputNumber>
+                       </div>
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                    [globalFilterFields]="['paiementIrid', 'tauxIrid', 'employeid', 'salaireBrute', 'cotisationpatronel', 'cotoisationsalarial', 'salaireNet']" [(selection)]="selections"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'paiementIrDetail.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                                
+                        <th pSortableColumn="paiementIr">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIrDetail.paiementIr' | translate}}</span>
+                                <p-sortIcon field="paiementIr"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="tauxIr">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIrDetail.tauxIr' | translate}}</span>
+                                <p-sortIcon field="tauxIr"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="employe">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIrDetail.employe' | translate}}</span>
+                                <p-sortIcon field="employe"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="salaireBrute">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIrDetail.salaireBrute' | translate}}</span>
+                                <p-sortIcon field="salaireBrute"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="cotisationpatronel">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIrDetail.cotisationpatronel' | translate}}</span>
+                                <p-sortIcon field="cotisationpatronel"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="cotoisationsalarial">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIrDetail.cotoisationsalarial' | translate}}</span>
+                                <p-sortIcon field="cotoisationsalarial"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="salaireNet">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIrDetail.salaireNet' | translate}}</span>
+                                <p-sortIcon field="salaireNet"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+                            
+                        <td>{{element.paiementIr?.id}}</td>
+                            
+                            
+                        <td>{{element.tauxIr?.id}}</td>
+                            
+                            
+                        <td>{{element.employe?.id}}</td>
+                            
+                            
+                        <td>{{element.salaireBrute}}</td>
+                            
+                            
+                        <td>{{element.cotisationpatronel}}</td>
+                            
+                            
+                        <td>{{element.cotoisationsalarial}}</td>
+                            
+                            
+                        <td>{{element.salaireNet}}</td>
+                            
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'paiement ir detail' : 'paiement ir details' : 0 }}.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-paiement-ir-detail-create-admin  *ngIf="createDialog  && createActionIsValid"></app-paiement-ir-detail-create-admin>
+        <app-paiement-ir-detail-edit-admin  *ngIf="editDialog  && editActionIsValid"></app-paiement-ir-detail-edit-admin>
+        <app-paiement-ir-detail-view-admin  *ngIf="viewDialog  && viewActionIsValid"></app-paiement-ir-detail-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+<p-card header="Permission not allowed" *ngIf="!listActionIsValid">
+    <p class="m-0">
+        You don't have permission to access !
+    </p>
+</p-card>

@@ -1,0 +1,167 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'paiementIr.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'paiementIr.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'paiementIr.datePaiementIr' | translate}}</label>
+                                            <p-calendar appendTo="body" id="1"  [showTime]="true" [showSeconds]="false" placeholder="{{'paiementIr.datePaiementIr' | translate}}"  [(ngModel)]="item.datePaiementIr"
+                                                        dateFormat="{{dateFormat}}"  >
+                                            </p-calendar>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'paiementIr.totalCotisationPatronal' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="2" placeholder="{{'paiementIr.totalCotisationPatronal' | translate}}" [(ngModel)]="item.totalCotisationPatronal"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'paiementIr.totalCotisationSalarial' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'paiementIr.totalCotisationSalarial' | translate}}" [(ngModel)]="item.totalCotisationSalarial"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'paiementIr.month' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'paiementIr.month' | translate}}" [(ngModel)]="item.month"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'paiementIr.year' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'paiementIr.year' | translate}}" [(ngModel)]="item.year"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="6">{{'paiementIr.totalSalaireBrut' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="6" placeholder="{{'paiementIr.totalSalaireBrut' | translate}}" [(ngModel)]="item.totalSalaireBrut"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="7">{{'paiementIr.totalSalaireNet' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="7" placeholder="{{'paiementIr.totalSalaireNet' | translate}}" [(ngModel)]="item.totalSalaireNet"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="8">{{'paiementIr.societe' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="societes" [(ngModel)]="item.societe" id="8" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="ice" placeholder="{{'paiementIr.societe' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                        </div>
+                    </p-tabPanel>
+                            <p-tabPanel header="{{'paiementIr.paiementIrDetails' | translate}}">
+                                <p-tabView [(activeIndex)]="activeTab">
+                                    <p-tabPanel header="Création">
+                                            <div class="grid">
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Taux ir</label>
+                                                                <p-dropdown  appendTo="body"  [options]="tauxIrs" [(ngModel)]="paiementIrDetailsElement.tauxIr"
+                                                                             id="2"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="id"
+                                                                             placeholder="Taux ir"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+
+                                                            <div class="field col-11 md:col-6">
+                                                                <label>Employe</label>
+                                                                <p-dropdown  appendTo="body"  [options]="employes" [(ngModel)]="paiementIrDetailsElement.employe"
+                                                                             id="3"  [filter]="true" filterMatchMode="contains" [showClear]="true" optionLabel="id"
+                                                                             placeholder="Employe"  >
+                                                                </p-dropdown>
+                                                                
+                                                            </div>
+
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="4">Salaire brute</label>
+                                                                <p-inputNumber class="mb-2 mr-2" id="salaireBrute" placeholder="Salaire brute"  [(ngModel)]="paiementIrDetailsElement.salaireBrute"></p-inputNumber>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="5">Cotisationpatronel</label>
+                                                                <p-inputNumber class="mb-2 mr-2" id="cotisationpatronel" placeholder="Cotisationpatronel"  [(ngModel)]="paiementIrDetailsElement.cotisationpatronel"></p-inputNumber>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="6">Cotoisationsalarial</label>
+                                                                <p-inputNumber class="mb-2 mr-2" id="cotoisationsalarial" placeholder="Cotoisationsalarial"  [(ngModel)]="paiementIrDetailsElement.cotoisationsalarial"></p-inputNumber>
+                                                                
+                                                            </div>
+                                                            <div class="field col-12 md:col-6">
+                                                                <label for="7">Salaire net</label>
+                                                                <p-inputNumber class="mb-2 mr-2" id="salaireNet" placeholder="Salaire net"  [(ngModel)]="paiementIrDetailsElement.salaireNet"></p-inputNumber>
+                                                                
+                                                            </div>
+                                                <div class="field col-12 md:col-1">
+                                                    <button pButton pRipple type="button" icon="pi pi-plus" class="mt-4" label="OK" (click)="addPaiementIrDetails()"></button>
+                                                </div>
+
+                                            </div>
+                                    </p-tabPanel>
+                                    <p-tabPanel header="Liste {{item.paiementIrDetails?.length > 0 ? '(' + item.paiementIrDetails?.length + ')' : ''}}">
+                                            <div class="card">
+                                                <p-table [value]="item.paiementIrDetails" [scrollable]="true" scrollHeight="200px">
+                                                    <ng-template pTemplate="header">
+                                                        <tr>
+                                                                        <th>Taux ir</th>
+                                                                        <th>Employe</th>
+                                                                        <th>Salaire brute</th>
+                                                                        <th>Cotisationpatronel</th>
+                                                                        <th>Cotoisationsalarial</th>
+                                                                        <th>Salaire net</th>
+                                                            <th>Actions</th>
+                                                        </tr>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="body" let-p>
+                                                        <tr>
+                                                                    <td>{{p.tauxIr?.id}}</td>
+                                                                    <td>{{p.employe?.id}}</td>
+                                                                        <td>{{p.salaireBrute}}</td>
+                                                                        <td>{{p.cotisationpatronel}}</td>
+                                                                        <td>{{p.cotoisationsalarial}}</td>
+                                                                        <td>{{p.salaireNet}}</td>
+                                                            <td>
+                                                                <button (click)="deletePaiementIrDetails(p)" pButton type="button" icon="pi pi-times"  class="p-button-rounded p-button-danger"></button>
+                                                                <button (click)="editPaiementIrDetails(p)" pButton type="button" icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"></button>
+                                                            </td>
+                                                        </tr>
+                                                    </ng-template>
+                                                </p-table>
+                                            </div>
+
+                                    </p-tabPanel>
+                                </p-tabView>
+                            </p-tabPanel>
+
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>

@@ -1,0 +1,52 @@
+
+<p-dialog [(visible)]="viewDialog" [style]="{width: '70vw'}" header="{{'paiementIrDetail.tabPan' | translate}}" [modal]="true" styleClass="p-fluid">
+    <ng-template pTemplate="content">
+        <p-tabView>
+            <p-tabPanel header="{{'paiementIrDetail.tabPan' | translate}}">
+                <div class="grid">
+                    <div class="field col-12 md:col-6">
+                        <label for="1">{{'paiementIrDetail.paiementIr' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementIrDetail.paiementIr' | translate}}" autofocus  id="1" [ngModel]="item.paiementIr?.id">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="2">{{'paiementIrDetail.tauxIr' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementIrDetail.tauxIr' | translate}}" autofocus  id="2" [ngModel]="item.tauxIr?.id">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="3">{{'paiementIrDetail.employe' | translate}}</label>
+                        <input class="mb-2 mr-2" type="text" pInputText [disabled]="true" placeholder="{{'paiementIrDetail.employe' | translate}}" autofocus  id="3" [ngModel]="item.employe?.id">
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="4">{{'paiementIrDetail.salaireBrute' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="4" [disabled]="true" placeholder="{{'paiementIrDetail.salaireBrute' | translate}}" [ngModel]="item.salaireBrute"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="5">{{'paiementIrDetail.cotisationpatronel' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="5" [disabled]="true" placeholder="{{'paiementIrDetail.cotisationpatronel' | translate}}" [ngModel]="item.cotisationpatronel"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="6">{{'paiementIrDetail.cotoisationsalarial' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="6" [disabled]="true" placeholder="{{'paiementIrDetail.cotoisationsalarial' | translate}}" [ngModel]="item.cotoisationsalarial"></p-inputNumber>
+                    </div>
+                    <div class="field col-12 md:col-6">
+                        <label for="7">{{'paiementIrDetail.salaireNet' | translate}}</label>
+                        <p-inputNumber class="mb-2 mr-2" id="7" [disabled]="true" placeholder="{{'paiementIrDetail.salaireNet' | translate}}" [ngModel]="item.salaireNet"></p-inputNumber>
+                    </div>
+                </div>
+            </p-tabPanel>
+
+        </p-tabView>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer" >
+        <div class="p-flexbox">
+            <div>
+                <button pButton pRipple label="Annuler" icon="pi pi-times" class="p-button-outlined" (click)="hideViewDialog()"></button>
+            </div>
+        </div>
+    </ng-template>
+</p-dialog>
+
+
+

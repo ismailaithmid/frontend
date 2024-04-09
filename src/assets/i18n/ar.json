@@ -1,0 +1,333 @@
+{
+    "from-to": "العناصر من {first} إلى {last} (الإجمالي {totalRecords})",
+    "new": "جديد",
+    "search": "بحث",
+    "export": "تصدير",
+    "validate": "التحقق",
+    "search": "البحث...",
+    "delete": "حذف",
+    "cancel": "إلغاء",
+    "save": "حفظ",
+    "next": "التالي",
+    "yes": "نعم",
+    "no": "لا",
+    "actions": "الإجراءات",
+    "confirm": "تأكيد",
+    "creation": "إنشاء",
+    "list": "قائمة",
+
+    "actionPermission": {
+        "reference": "المرجع",
+        "libelle": "التسمية",
+        "actionPermission": "إذن الإجراء",
+        "tabPan": "إذن الإجراء",
+        "header": "قائمة أذونات الإجراءات",
+        "deleteActionPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن الإجراء؟",
+        "deleteActionPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "modelPermissionUser": {
+        "actionPermission": "إذن الإجراء",
+        "actionPermissionPlaceHolder": "اختر إذن الإجراء",
+        "actionPermissionPlaceHolderFilter": "البحث حسب إذن الإجراء",
+        "modelPermission": "إذن النموذج",
+        "modelPermissionPlaceHolder": "اختر إذن النموذج",
+        "modelPermissionPlaceHolderFilter": "البحث حسب إذن النموذج",
+        "value": "القيمة",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "subAttribute": "السمة الفرعية",
+        "modelPermissionUser": "إذن مستخدم النموذج",
+        "tabPan": "إذن مستخدم النموذج",
+        "header": "قائمة مستخدمي إذن النموذج",
+        "deleteModelPermissionUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم إذن النموذج؟",
+        "deleteModelPermissionUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "role": {
+        "authority": "السلطة",
+        "role": "الدور",
+        "tabPan": "الدور",
+        "header": "قائمة الأدوار",
+        "deleteRoleConfirmationMessage": "هل أنت متأكد أنك تريد حذف الدور؟",
+        "deleteRolesConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "roleUser": {
+        "role": "الدور",
+        "rolePlaceHolder": "اختر دورًا",
+        "rolePlaceHolderFilter": "البحث حسب الدور",
+        "user": "المستخدم",
+        "userPlaceHolder": "اختر مستخدمًا",
+        "userPlaceHolderFilter": "البحث حسب المستخدم",
+        "roleUser": "دور المستخدم",
+        "tabPan": "دور المستخدم",
+        "header": "قائمة مستخدمي الدور",
+        "deleteRoleUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف مستخدم الدور؟",
+        "deleteRoleUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+    "user": {
+        "credentialsNonExpired": "صلاحية الاعتماد غير منتهية",
+        "enabled": "مفعل",
+        "email": "البريد الإلكتروني",
+        "accountNonExpired": "الحساب غير منتهي",
+        "accountNonLocked": "الحساب غير مقفل",
+        "username": "اسم المستخدم",
+        "password": "كلمة المرور",
+        "passwordChanged": "تم تغيير كلمة المرور",
+        "modelPermissionUsers": "مستخدمو إذن النموذج",
+        "roleUsers": "مستخدمو الدور",
+        "RoleUsersPlaceHolder": "حدد عدة أدوار",
+        "user": "المستخدم",
+        "tabPan": "المستخدم",
+        "header": "قائمة المستخدمين",
+        "deleteUserConfirmationMessage": "هل أنت متأكد أنك تريد حذف المستخدم؟",
+        "deleteUsersConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+    },
+
+	"modelPermission": {
+		"reference": "المرجع",
+		"libelle": "التسمية",
+		"modelPermission": "إذن النموذج",
+		"tabPan": "إذن النموذج",
+		"header": "قائمة أذونات النماذج",
+		"deleteModelPermissionConfirmationMessage": "هل أنت متأكد أنك تريد حذف إذن النموذج؟",
+		"deleteModelPermissionsConfirmationMessage": "هل أنت متأكد أنك تريد حذف العناصر المحددة؟"
+	}
+
+
+
+    "gradeEmploye":{
+        "code": "Code",
+        "libelle": "Libelle",
+        "gradeEmploye": "Grade employe",
+        "tabPan": "Grade employe",
+        "header": "Liste des grade employes",
+        "deleteGradeEmployeConfirmationMessage": "Are you sure you want to delete grade employe",
+        "deleteGradeEmployesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paiementIrDetail":{
+        "paiementIr": "Paiement ir",
+        "paiementIrPlaceHolder": "Select a Paiement ir",
+        "paiementIrPlaceHolderFilter": "Search by Paiement ir",
+        "tauxIr": "Taux ir",
+        "tauxIrPlaceHolder": "Select a Taux ir",
+        "tauxIrPlaceHolderFilter": "Search by Taux ir",
+        "employe": "Employe",
+        "employePlaceHolder": "Select a Employe",
+        "employePlaceHolderFilter": "Search by Employe",
+        "salaireBrute": "Salaire brute",
+        "salaireBruteMin": "Salaire brute Min",
+        "salaireBruteMax": "Salaire brute Max",
+        "cotisationpatronel": "Cotisationpatronel",
+        "cotisationpatronelMin": "Cotisationpatronel Min",
+        "cotisationpatronelMax": "Cotisationpatronel Max",
+        "cotoisationsalarial": "Cotoisationsalarial",
+        "cotoisationsalarialMin": "Cotoisationsalarial Min",
+        "cotoisationsalarialMax": "Cotoisationsalarial Max",
+        "salaireNet": "Salaire net",
+        "salaireNetMin": "Salaire net Min",
+        "salaireNetMax": "Salaire net Max",
+        "paiementIrDetail": "Paiement ir detail",
+        "tabPan": "Paiement ir detail",
+        "header": "Liste des paiement ir details",
+        "deletePaiementIrDetailConfirmationMessage": "Are you sure you want to delete paiement ir detail",
+        "deletePaiementIrDetailsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "tauxIr":{
+        "salaireMin": "Salaire min",
+        "salaireMinMin": "Salaire min Min",
+        "salaireMinMax": "Salaire min Max",
+        "salaireMax": "Salaire max",
+        "salaireMaxMin": "Salaire max Min",
+        "salaireMaxMax": "Salaire max Max",
+        "pourcentage": "Pourcentage",
+        "pourcentageMin": "Pourcentage Min",
+        "pourcentageMax": "Pourcentage Max",
+        "dateMin": "Date min",
+        "dateMinMin": "Date min Min",
+        "dateMinMax": "Date min Max",
+        "dateMax": "Date max",
+        "dateMaxMin": "Date max Min",
+        "dateMaxMax": "Date max Max",
+        "cotisationPatronal": "Cotisation patronal",
+        "cotisationPatronalMin": "Cotisation patronal Min",
+        "cotisationPatronalMax": "Cotisation patronal Max",
+        "cotisationSalarial": "Cotisation salarial",
+        "cotisationSalarialMin": "Cotisation salarial Min",
+        "cotisationSalarialMax": "Cotisation salarial Max",
+        "tauxIr": "Taux ir",
+        "tabPan": "Taux ir",
+        "header": "Liste des taux irs",
+        "deleteTauxIrConfirmationMessage": "Are you sure you want to delete taux ir",
+        "deleteTauxIrsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "societe":{
+        "ice": "Ice",
+        "societe": "Societe",
+        "tabPan": "Societe",
+        "header": "Liste des societes",
+        "deleteSocieteConfirmationMessage": "Are you sure you want to delete societe",
+        "deleteSocietesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "paiementIr":{
+        "datePaiementIr": "Date paiement ir",
+        "datePaiementIrMin": "Date paiement ir Min",
+        "datePaiementIrMax": "Date paiement ir Max",
+        "totalCotisationPatronal": "Total cotisation patronal",
+        "totalCotisationPatronalMin": "Total cotisation patronal Min",
+        "totalCotisationPatronalMax": "Total cotisation patronal Max",
+        "totalCotisationSalarial": "Total cotisation salarial",
+        "totalCotisationSalarialMin": "Total cotisation salarial Min",
+        "totalCotisationSalarialMax": "Total cotisation salarial Max",
+        "month": "Month",
+        "monthMin": "Month Min",
+        "monthMax": "Month Max",
+        "year": "Year",
+        "yearMin": "Year Min",
+        "yearMax": "Year Max",
+        "totalSalaireBrut": "Total salaire brut",
+        "totalSalaireBrutMin": "Total salaire brut Min",
+        "totalSalaireBrutMax": "Total salaire brut Max",
+        "totalSalaireNet": "Total salaire net",
+        "totalSalaireNetMin": "Total salaire net Min",
+        "totalSalaireNetMax": "Total salaire net Max",
+        "societe": "Societe",
+        "societePlaceHolder": "Select a Societe",
+        "societePlaceHolderFilter": "Search by Societe",
+        "paiementIrDetails": "Paiement ir details",
+        "paiementIr": "Paiement ir",
+        "tabPan": "Paiement ir",
+        "header": "Liste des paiement irs",
+        "deletePaiementIrConfirmationMessage": "Are you sure you want to delete paiement ir",
+        "deletePaiementIrsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "redevable":{
+        "cin": "Cin",
+        "nom": "Nom",
+        "prenom": "Prenom",
+        "redevable": "Redevable",
+        "tabPan": "Redevable",
+        "header": "Liste des redevables",
+        "deleteRedevableConfirmationMessage": "Are you sure you want to delete redevable",
+        "deleteRedevablesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "employeSalaireHistory":{
+        "moisdepart": "Moisdepart",
+        "moisdepartMin": "Moisdepart Min",
+        "moisdepartMax": "Moisdepart Max",
+        "moisFin": "Mois fin",
+        "moisFinMin": "Mois fin Min",
+        "moisFinMax": "Mois fin Max",
+        "anneeDepart": "Annee depart",
+        "anneeDepartMin": "Annee depart Min",
+        "anneeDepartMax": "Annee depart Max",
+        "anneeFin": "Annee fin",
+        "anneeFinMin": "Annee fin Min",
+        "anneeFinMax": "Annee fin Max",
+        "salaireBrute": "Salaire brute",
+        "salaireBruteMin": "Salaire brute Min",
+        "salaireBruteMax": "Salaire brute Max",
+        "societe": "Societe",
+        "societePlaceHolder": "Select a Societe",
+        "societePlaceHolderFilter": "Search by Societe",
+        "employe": "Employe",
+        "employePlaceHolder": "Select a Employe",
+        "employePlaceHolderFilter": "Search by Employe",
+        "ref": "Ref",
+        "employeSalaireHistory": "Employe salaire history",
+        "tabPan": "Employe salaire history",
+        "header": "Liste des employe salaire historys",
+        "deleteEmployeSalaireHistoryConfirmationMessage": "Are you sure you want to delete employe salaire history",
+        "deleteEmployeSalaireHistorysConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "locale":{
+        "ref": "Ref",
+        "libelle": "Libelle",
+        "adresse": "Adresse",
+        "redevable": "Redevable",
+        "redevablePlaceHolder": "Select a Redevable",
+        "redevablePlaceHolderFilter": "Search by Redevable",
+        "locale": "Locale",
+        "tabPan": "Locale",
+        "header": "Liste des locales",
+        "deleteLocaleConfirmationMessage": "Are you sure you want to delete locale",
+        "deleteLocalesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "employe":{
+        "code": "Code",
+        "firstname": "Firstname",
+        "lastname": "Lastname",
+        "societe": "Societe",
+        "societePlaceHolder": "Select a Societe",
+        "societePlaceHolderFilter": "Search by Societe",
+        "employe": "Employe",
+        "tabPan": "Employe",
+        "header": "Liste des employes",
+        "deleteEmployeConfirmationMessage": "Are you sure you want to delete employe",
+        "deleteEmployesConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "taxeLotissement":{
+        "dateDePresentation": "Date de presentation",
+        "dateDePresentationMin": "Date de presentation Min",
+        "dateDePresentationMax": "Date de presentation Max",
+        "surface": "Surface",
+        "surfaceMin": "Surface Min",
+        "surfaceMax": "Surface Max",
+        "montantDeBase": "Montant de base",
+        "montantDeBaseMin": "Montant de base Min",
+        "montantDeBaseMax": "Montant de base Max",
+        "ref": "Ref",
+        "redevable": "Redevable",
+        "redevablePlaceHolder": "Select a Redevable",
+        "redevablePlaceHolderFilter": "Search by Redevable",
+        "taxeLotissement": "Taxe lotissement",
+        "tabPan": "Taxe lotissement",
+        "header": "Liste des taxe lotissements",
+        "deleteTaxeLotissementConfirmationMessage": "Are you sure you want to delete taxe lotissement",
+        "deleteTaxeLotissementsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+
+    "tauxTaxeLotissement":{
+        "ref": "Ref",
+        "dateAppMin": "Date app min",
+        "dateAppMinMin": "Date app min Min",
+        "dateAppMinMax": "Date app min Max",
+        "dateAppMax": "Date app max",
+        "dateAppMaxMin": "Date app max Min",
+        "dateAppMaxMax": "Date app max Max",
+        "montantParMetreCarre": "Montant par metre carre",
+        "montantParMetreCarreMin": "Montant par metre carre Min",
+        "montantParMetreCarreMax": "Montant par metre carre Max",
+        "tauxTaxeLotissement": "Taux taxe lotissement",
+        "tabPan": "Taux taxe lotissement",
+        "header": "Liste des taux taxe lotissements",
+        "deleteTauxTaxeLotissementConfirmationMessage": "Are you sure you want to delete taux taxe lotissement",
+        "deleteTauxTaxeLotissementsConfirmationMessage": "Are you sure you want to delete the selected elements"
+    },
+
+"appName": "GED"
+}
+
+

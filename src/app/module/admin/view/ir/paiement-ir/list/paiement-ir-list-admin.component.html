@@ -1,0 +1,243 @@
+<div class="grid"  *ngIf="listActionIsValid">
+    <div class="col-12">
+        <p-toast></p-toast>
+        <div class="card">
+            <p-toolbar styleClass="mb-4">
+                <ng-template pTemplate="left">
+                                        <button pButton pRipple label=" {{'new' | translate}}" icon="pi pi-plus" class="p-button-info mr-2 mb-2" (click)="openCreate('PaiementIr')" *ngIf="createActionIsValid"></button>
+                    <button [disabled]="isSelectionDisabled()" pButton pRipple label=" {{'delete' | translate}}" icon="pi pi-trash" class="p-button-danger mr-2 mb-2" (click)=deleteMultiple()  *ngIf="deleteActionIsValid"></button>
+                    <button pButton pRipple label=" {{'search' | translate}}" icon="pi pi-{{findByCriteriaShow?'angle-down':'angle-right'}}" class="p-button-secondary mr-2 mb-2" (click)="this.showSearch()"></button>
+                </ng-template>
+                <ng-template pTemplate="right">
+                    <div class="flex">
+                        <p-splitButton label=" {{'export' | translate}}" icon="pi pi-download" styleClass="p-button-secondary" [model]="excelPdfButons"></p-splitButton>
+                    </div>
+                </ng-template>
+
+            </p-toolbar>
+            <p-toolbar *ngIf="findByCriteriaShow">
+
+                <div class="col-12">
+                    <div class="flex flex-wrap p-fluid col-12">
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label class="font-bold block mb-2" for="1-1">{{'paiementIr.datePaiementIrMin' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.datePaiementIrFrom"
+                                    id="1-1" dateFormat="dd-MM-yy"  [showIcon]="true"  class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="1-2">{{'paiementIr.datePaiementIrMax' | translate}}</label>
+                            <p-calendar class="mr-2" [(ngModel)]="criteria.datePaiementIrTo"
+                                    id="1-2" dateFormat="dd-MM-yy"  [showIcon]="true" class="p-fluid"></p-calendar>
+                        </div>
+
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2-1">{{'paiementIr.totalCotisationPatronalMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalCotisationPatronalMin" id="2-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="2-2">{{'paiementIr.totalCotisationPatronalMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalCotisationPatronalMax" id="2-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3-1">{{'paiementIr.totalCotisationSalarialMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalCotisationSalarialMin" id="3-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="3-2">{{'paiementIr.totalCotisationSalarialMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalCotisationSalarialMax" id="3-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4-1">{{'paiementIr.monthMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.monthMin" id="4-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="4-2">{{'paiementIr.monthMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.monthMax" id="4-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5-1">{{'paiementIr.yearMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.yearMin" id="5-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="5-2">{{'paiementIr.yearMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.yearMax" id="5-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-1">{{'paiementIr.totalSalaireBrutMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalSalaireBrutMin" id="6-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="6-2">{{'paiementIr.totalSalaireBrutMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalSalaireBrutMax" id="6-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7-1">{{'paiementIr.totalSalaireNetMin' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalSalaireNetMin" id="7-1"></p-inputNumber>
+                        </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="7-2">{{'paiementIr.totalSalaireNetMax' | translate}}</label>
+                            <p-inputNumber  mode="decimal" [(ngModel)]="criteria.totalSalaireNetMax" id="7-2"></p-inputNumber>
+                       </div>
+                        <div class="lg:col-3 md:col-6 sm:col-12 mb-4">
+                            <label  class="font-bold block mb-2" for="8-2">{{'paiementIr.societe' | translate}}</label>
+                            <p-dropdown [options]="societes" [(ngModel)]="criteria.societe" id="8" [filter]="true" class="p-fluid"
+                                        [showClear]="true"  placeholder="{{'paiementIr.societe' | translate}}" optionLabel="ice">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                    <div [style]="{ marginTop : '1rem', display: 'flex', justifyContent: 'flex-end' }">
+                        <button pButton pRipple label="{{'validate' | translate}}" icon="pi pi-sort-amount-down" class="p-button-info mr-2" (click)="findPaginatedByCriteria()"></button>
+                    </div>
+                </div>
+
+
+            </p-toolbar>
+
+
+            <p-table #dt [value]="items" [columns]="cols" [rows]="8" [paginator]="false"
+                    [globalFilterFields]="['datePaiementIr', 'totalCotisationPatronal', 'totalCotisationSalarial', 'month', 'year', 'totalSalaireBrut', 'totalSalaireNet', 'societeice']" [(selection)]="selections"
+                    [rowHover]="true" dataKey="id" styleClass="p-datatable-customers"
+                    currentPageReportTemplate="{{'les éléments de {first} à {last} sur {totalRecords} ' | translate}}"
+                    [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" selectionMode="multiple">
+                <ng-template pTemplate="caption">
+                    <div class="flex flex-column flex-row justify-content-between table-header">
+                        <h5 class="p-m-0">{{'paiementIr.header' | translate}}</h5>
+                        <span class="p-input-icon-left ml-auto">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" placeholder="{{'searchInput' | translate}}" (input)="dt.filterGlobal($event.target.value, 'contains')"/>
+                        </span>
+                    </div>
+                </ng-template>
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th style="width: 3rem">
+                            <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+                        </th>
+                                
+                        <th pSortableColumn="datePaiementIr">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.datePaiementIr' | translate}}</span>
+                                <p-sortIcon field="datePaiementIr"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="totalCotisationPatronal">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.totalCotisationPatronal' | translate}}</span>
+                                <p-sortIcon field="totalCotisationPatronal"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="totalCotisationSalarial">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.totalCotisationSalarial' | translate}}</span>
+                                <p-sortIcon field="totalCotisationSalarial"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="month">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.month' | translate}}</span>
+                                <p-sortIcon field="month"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="year">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.year' | translate}}</span>
+                                <p-sortIcon field="year"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="totalSalaireBrut">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.totalSalaireBrut' | translate}}</span>
+                                <p-sortIcon field="totalSalaireBrut"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="totalSalaireNet">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.totalSalaireNet' | translate}}</span>
+                                <p-sortIcon field="totalSalaireNet"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                                
+                        <th pSortableColumn="societe">
+                            <div class="p-d-flex p-jc-between p-ai-center">
+                                <span>{{'paiementIr.societe' | translate}}</span>
+                                <p-sortIcon field="societe"></p-sortIcon>
+                            </div>
+                        </th>
+                                
+                        <th>Actions</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-element>
+                    <tr>
+                        <td>
+                            <p-tableCheckbox [value]="element"></p-tableCheckbox>
+                        </td>
+                            
+                        <td>{{element.datePaiementIr | date :'dd/MM/yyyy HH:mm' }}</td>
+                            
+                            
+                        <td>{{element.totalCotisationPatronal}}</td>
+                            
+                            
+                        <td>{{element.totalCotisationSalarial}}</td>
+                            
+                            
+                        <td>{{element.month}}</td>
+                            
+                            
+                        <td>{{element.year}}</td>
+                            
+                            
+                        <td>{{element.totalSalaireBrut}}</td>
+                            
+                            
+                        <td>{{element.totalSalaireNet}}</td>
+                            
+                            
+                        <td>{{element.societe?.ice}}</td>
+                            
+                        <td>
+                            <button pButton pRipple icon="pi pi-pencil"  class="p-button-rounded p-button-info mr-2" (click)="edit(element)"  *ngIf="editActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-list" class="p-button-rounded p-button-secondary mr-2" (click)="view(element)"  *ngIf="viewActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger mr-2" (click)="delete(element)"  *ngIf="deleteActionIsValid"></button>
+                            <button pButton pRipple icon="pi pi-copy" class="p-button-rounded p-button-raised p-button-warning mr-2" (click)="duplicate(element)"  *ngIf="duplicateActionIsValid"></button>
+                        </td>
+                    </tr>
+                </ng-template>
+
+                <ng-template pTemplate="summary">
+                    <p-paginator  [rows]="10" [totalRecords]="totalRecords" (onPageChange)="onPage($event)"></p-paginator>
+                    <div class="p-d-flex p-ai-center p-jc-between">
+                        En totale il {{items ? totalRecords == 1 ? 'y a' : 'y a' : 'y a' }} {{items ? totalRecords : 0 }} {{items ? totalRecords == 1 ? 'paiement ir' : 'paiement irs' : 0 }}.
+                    </div>
+                </ng-template>
+            </p-table>
+        </div>
+
+        <app-paiement-ir-create-admin  *ngIf="createDialog  && createActionIsValid"></app-paiement-ir-create-admin>
+        <app-paiement-ir-edit-admin  *ngIf="editDialog  && editActionIsValid"></app-paiement-ir-edit-admin>
+        <app-paiement-ir-view-admin  *ngIf="viewDialog  && viewActionIsValid"></app-paiement-ir-view-admin>
+        <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+    </div>
+</div>
+
+<p-card header="Permission not allowed" *ngIf="!listActionIsValid">
+    <p class="m-0">
+        You don't have permission to access !
+    </p>
+</p-card>

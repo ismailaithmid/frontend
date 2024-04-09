@@ -1,0 +1,86 @@
+    <p-dialog [(visible)]="editDialog" [style]="{width: '70vw'}" header="{{'employeSalaireHistory.tabPan' | translate}}" [modal]="true" styleClass="p-fluid" [maximizable]="true" [draggable]="false" [resizable]="false">
+        <ng-template pTemplate="content" >
+                <p-tabView>
+                    <p-tabPanel header="{{'employeSalaireHistory.tabPan' | translate}}">
+                        <div class="grid">
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="1">{{'employeSalaireHistory.moisdepart' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="1" placeholder="{{'employeSalaireHistory.moisdepart' | translate}}" [(ngModel)]="item.moisdepart"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="2">{{'employeSalaireHistory.moisFin' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="2" placeholder="{{'employeSalaireHistory.moisFin' | translate}}" [(ngModel)]="item.moisFin"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="3">{{'employeSalaireHistory.anneeDepart' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="3" placeholder="{{'employeSalaireHistory.anneeDepart' | translate}}" [(ngModel)]="item.anneeDepart"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="4">{{'employeSalaireHistory.anneeFin' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="4" placeholder="{{'employeSalaireHistory.anneeFin' | translate}}" [(ngModel)]="item.anneeFin"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="5">{{'employeSalaireHistory.salaireBrute' | translate}}</label>
+                                            <p-inputNumber class="mb-2 mr-2" id="5" placeholder="{{'employeSalaireHistory.salaireBrute' | translate}}" [(ngModel)]="item.salaireBrute"  >
+                                            </p-inputNumber>
+                                            
+                                        </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="6">{{'employeSalaireHistory.societe' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="societes" [(ngModel)]="item.societe" id="6" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="ice" placeholder="{{'employeSalaireHistory.societe' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                    <div class="field col-11 md:col-6">
+                                        <label for="7">{{'employeSalaireHistory.employe' | translate}}</label>
+                                        <p-dropdown  appendTo="body"  [options]="employes" [(ngModel)]="item.employe" id="7" [filter]="true" filterMatchMode="contains"
+                                                     [showClear]="true" optionLabel="id" placeholder="{{'employeSalaireHistory.employe' | translate}}"  >
+                                        </p-dropdown>
+                                        
+                                    </div>
+
+                                        <div class="field col-12 md:col-6">
+                                            <label for="8">{{'employeSalaireHistory.ref' | translate}}</label>
+                                            <input class="mb-2 mr-2" type="text" pInputText  placeholder="{{'employeSalaireHistory.ref' | translate}}" id="8" [(ngModel)]="item.ref"
+                                                    />
+                                            
+                                        </div>
+
+
+
+                        </div>
+                    </p-tabPanel>
+
+                </p-tabView>
+
+        </ng-template>
+
+        <ng-template pTemplate="footer" >
+            <div class="p-flexbox">
+
+                    <button pButton pRipple  label="{{'validate' | translate}}"  icon="pi pi-check"  (click)="edit()"></button>
+
+
+                        <button pButton pRipple  label="{{'cancel' | translate}}" icon="pi pi-times" class="p-button-outlined" (click)="hideEditDialog()"></button>
+
+
+            </div>
+        </ng-template>
+
+    </p-dialog>
